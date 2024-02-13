@@ -1,0 +1,57 @@
+<div class="character-detail">
+    <div class="container" *ngIf="!loading">
+        <div>{{error}}</div>
+
+        <!-- Image and Description -->
+        <div class="row g-3">
+            <div class="col-md-3">
+                <img class="img-rounded"
+                src="{{character.thumbnail.path || 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available/' }}/portrait_fantastic.{{character.thumbnail.extension || 'jpg'}}"
+                    alt="{{character.name}}" />
+            </div>
+            <div class="col-md-9">
+                <h2 class="">{{ character.name }}</h2>
+                <p>{{ character.description }}</p>
+                <p><small><a class="link-dark" href="{{character.urls[0].url}}"><i class="fa fa-external-link"> Marvel</i></a></small></p>
+            </div>
+        </div>
+        <!-- Comics list -->
+        <div class="row comics-list" *ngIf="this.character.comics.available > 0">
+            <div class="col-md-12">
+                <div class="d-flex w-100 justify-content-between">
+                    <h3>Comics</h3>
+                    
+                    <nav aria-label="comics page navigation">
+                        <ul class="pagination">
+                          <li class="page-item" [class.disabled]="this.comicsPage === 1 || comicsLoading"><a class="page-link" (click)="comicsPreviousPage()">Previous</a></li>
+                          <li class="page-item"><span class="page-link page-range">{{getComicsPageItemStart()}} - {{getComicsPageItemEnd()}}</span></li>
+                          <li class="page-item" [class.disabled]="this.comicsPage === this.comicsTotalPages || comicsLoading"><a class="page-link" (click)="comicsNextPage()">Next</a></li>
+                        </ul>
+                      </nav>
+                </div>
+                
+                <div class="list-group" *ngIf="!this.comicsLoading">
+                    <div class="d-flex w-100 justify-content-between list-group-item list-group-item-action" *ngFor="let comic of comics">
+                        <h5 class="mb-1"><a [routerLink]="['/comic', comic.id]" aria-current="true">{{comic.title}}</a></h5>
+                        <small><a class="link-dark" href="{{comic.urls[0].url}}"><i class="fa fa-external-link"> Marvel</i></a></small>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-center" *ngIf="this.comicsLoading">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center" *ngIf="loading">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+</div>

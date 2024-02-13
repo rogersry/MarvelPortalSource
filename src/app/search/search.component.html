@@ -1,0 +1,48 @@
+<!-- Intro and Search Box -->
+<section class="py-2 text-center container">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Marvel Character Search</h1>
+            <p class="lead text-muted">Search name starts with...</p>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search Character Name"
+                    aria-label="Search Character Name" aria-describedby="search-button" #searchText
+                    (keydown.enter)="searchCharacter(searchText.value)">
+                <button class="btn btn-outline-secondary" type="button" id="search-button"
+                    (click)="searchCharacter(searchText.value)">Search</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<article class="comic">
+    <div class="panel" *ngFor="let character of characters" (click)="selectCharacter(character.id)">
+        <p class="text top-left text-truncate">{{character.name}}</p>
+        <div class="d-flex character-info" (click)="selectCharacter(character.id)">
+            <img src="{{character.thumbnail.path || 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available/' }}/portrait_xlarge.{{character.thumbnail.extension || 'jpg'}}"
+                alt="{{character.name}}" class="me-3 rounded character-image" />
+            <div class="character-stats">
+                <table class="table table-borderless">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Comics</th>
+                            <td>{{character.comics.available}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Stories</th>
+                            <td>{{character.stories.available}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Events</th>
+                            <td>{{character.events.available}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Series</th>
+                            <td>{{character.series.available}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</article>

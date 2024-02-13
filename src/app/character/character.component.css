@@ -1,0 +1,22 @@
+.comics-list {
+    padding-top:30px;
+}
+
+.character-detail {
+    margin: 30px auto;
+}
+
+.comic-thumbnail {
+    height:75px;
+    width:50px;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color:black;
+}
+
+.page-range {
+    color: black;
+}

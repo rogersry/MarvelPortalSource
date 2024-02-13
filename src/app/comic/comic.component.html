@@ -1,0 +1,53 @@
+<div *ngIf="comic" class="comic-container container">
+    <div>{{error}}</div>
+    <!-- Slideshow container -->
+    <div class="slideshow-container" *ngIf="this.slideshowImages.length > 0">
+
+        <!-- Full-width images with number and caption text -->
+        <div class="mySlides" *ngFor="let comicBookImage of this.slideshowImages; index as i; "
+            [class.active]="i === this.slideIndex" [style.display]="i === this.slideIndex ? 'block' : 'none'">
+            <img src="{{comicBookImage.path}}.{{comicBookImage.extension || 'jpg'}}" alt="Comic book image">
+        </div>
+
+        <!-- Next and previous buttons -->
+        <a class="prev" (click)="plusSlides(-1)">&#10094;</a>
+        <a class="next" (click)="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+
+    <!-- The dots/circles -->
+    <div style="text-align:center">
+        <span class="dot" *ngFor="let comicBookImage of this.slideshowImages; index as i; "
+            (click)="currentSlide(i)"></span>
+    </div>
+    <div class="container">
+        <h1 class="media-heading">{{ comic.title }}</h1>
+        <p><span><b>Written by: </b> {{writers}}</span></p>
+        <p>
+            {{ comic.description }}
+        </p>
+        <small><a class="link-dark" href="{{comic.urls[0].url}}"><i class="fa fa-external-link"> Marvel</i></a></small>
+    </div>
+    <div class="container">
+        <h2>Characters</h2>
+        <table class="table">
+            <tbody>
+                <tr *ngFor="let character of characters">
+                    <th class="character-name" scope="row" (click)="selectCharacter(character.id)">{{character.name}}</th>
+                    <td><small><a class="link-dark" href="{{character.urls[0].url}}"><i class="fa fa-external-link"> Marvel</i></a></small></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="container">
+        <h2>Credits</h2>
+        <table class="table">
+            <tbody>
+                <tr *ngFor="let creator of comic.creators.items">
+                    <th scope="row">{{creator.role}}</th>
+                    <td>{{creator.name}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
