@@ -1,7 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-
 import { MarvelApiService } from './marvel-api.service';
-import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { Character, Comic } from './interfaces/marvel-interfaces';
 
