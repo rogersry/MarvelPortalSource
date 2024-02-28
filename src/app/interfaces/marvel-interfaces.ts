@@ -89,7 +89,7 @@ export interface Comic {
     textObjects: any[]
     resourceURI: string
     urls: Url[]
-    series: Series
+    series: SeriesItem
     variants: Variant[]
     collections: any[]
     collectedIssues: any[]
