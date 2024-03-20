@@ -1,8 +1,6 @@
 # MarvelPortal
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.1.  This application does work, however it is still a work in progress and is not complete.
-
-# Deployed web
+I created this Angular application to search Marvel Comics characters and comics.  It is a work in progress and I use it to play with latest Angular.  I plan to add more features in the future.
 
 You can view the deployed web here: https://rogersry.github.io/MarvelPortal/
 
