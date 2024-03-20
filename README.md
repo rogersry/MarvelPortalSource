@@ -1,6 +1,6 @@
 # MarvelPortal
 
-I created this Angular application to search Marvel Comics characters and comics.  It is a work in progress and I use it to play with latest Angular.  I plan to add more features in the future.
+I created this Angular application to search Marvel characters and comics.  It is a work in progress and I use it to play with latest Angular updates.  I plan to add more features in the future.
 
 You can view the deployed web here: https://rogersry.github.io/MarvelPortal/
 
